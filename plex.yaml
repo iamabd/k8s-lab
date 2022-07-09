@@ -45,5 +45,5 @@ spec:
       volumes:
       - name: nfs
         nfs:
-          path: /mnt/user/
+          path: /mnt/user/tv
           server: 172.16.2.10
