@@ -90,19 +90,21 @@ spec:
           value: "1000"
         - name: VERSION
           value: "latest"
+        - name: ADVERTISE_IP 
+          value: 172.17.50.101
         - name: PLEX_CLAIM
           value: 
         volumeMounts:
         - mountPath: /nfs
           name: tv
-        - mountPath: /config
-          name: config
+#        - mountPath: /config
+#          name: config
       volumes:
       - name: tv
         nfs:
           path: /mnt/user/tv
           server: 172.16.2.10
-      - name: config
-        nfs:
-          path: /mnt/user/appdata/k8s-plex
-          server: 172.16.2.10
+#      - name: config
+#        nfs:
+#          path: /mnt/user/appdata/k8s-plex
+#          server: 172.16.2.10
