@@ -91,7 +91,7 @@ spec:
         - name: VERSION
           value: "latest"
         - name: ADVERTISE_IP 
-          value: 172.17.50.101
+          value: "http://172.17.50.101:32400"
         - name: PLEX_CLAIM
           value: 
         volumeMounts:
@@ -108,3 +108,11 @@ spec:
 #        nfs:
 #          path: /mnt/user/appdata/k8s-plex
 #          server: 172.16.2.10
+  volumeClaimTemplates:
+  - metadata:
+      name: plexconfig
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 50Gi
