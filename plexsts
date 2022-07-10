@@ -50,7 +50,7 @@ status:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: web
+  name: plex
 spec:
   serviceName: "plex"
   replicas: 1
