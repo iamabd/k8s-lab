@@ -41,7 +41,7 @@ spec:
         - name: VERSION
           value: "latest"
         - name: PLEX_CLAIM
-          value: claim-wsSPmCtRqz2-iyS6fevi
+          value: 
         volumeMounts:
         - mountPath: /nfs
           name: tv
