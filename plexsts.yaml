@@ -97,8 +97,8 @@ spec:
         volumeMounts:
         - mountPath: /nfs
           name: tv
-#        - mountPath: /config
-#          name: config
+        - mountPath: /config
+          name: plexconfig
       volumes:
       - name: tv
         nfs:
