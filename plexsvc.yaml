@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: plex
+  namespace: default
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.110.51.217
+  clusterIPs:
+  - 10.110.51.217
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 32400
+    protocol: TCP
+    targetPort: 32400
+    name: plex
+  - port: 32400
+    protocol: UDP
+    targetPort: 32400
+    name: plex-udp
+  - port: 32469
+    protocol: TCP
+    targetPort: 32469
+    name: plex2    
+  - port: 32469
+    protocol: UDP
+    targetPort: 32469
+    name: plex2-udp
+  - port: 5353
+    protocol: UDP
+    targetPort: 5353
+    name: plex3-udp
+  - port: 1900
+    protocol: UDP
+    targetPort: 1900
+    name: plex4-udp      
+  selector:
+    app: plex
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 172.17.50.101
